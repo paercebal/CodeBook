@@ -9,6 +9,14 @@ Important: This project is under construction, including its organization/layout
 
 To handle the 3rd parties, I use VCPKG, which is a no-nonsense package manager that does exactly what I want, without hindering me. If you are developping on a Windows machine, give it a try. You'll like it.
 
+It is important to remove user-wide integration of VCPKG, as it may make the C++/CLI DLL compilation fail for a spurious error (conflict with Google Benchmark, in my case, for some reason, despite the DLL being at the time mostly empty). Execute the following command:
+
+```
+.\vcpkg integrate remove
+```
+
+... and install instead dependencies to VCPKG in another way.
+
 Anyway, this project depends on the following third parties:
 
 1. gtest

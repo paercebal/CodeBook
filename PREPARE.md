@@ -36,10 +36,10 @@ https://git-scm.com/download/win
 You can find instruction to install VCPKG on their Github page, here:
 https://github.com/Microsoft/vcpkg
 
-I strongly suggest you to use user-wide integration:
+I strongly suggest you to NOT use user-wide integration (it make the C++/CLI project fail at compile time), and if already done, to remove it:
 
 ```
-.\vcpkg integrate install
+.\vcpkg integrate remove
 ```
 
 Without that integration, you'll have to rely on an environment variable that
@@ -62,6 +62,31 @@ The following instructions will install all the packages needed by Kizuko:
 These packages will bring their dependencies with them.
 
 ### 5. Install LLVM
+
+Somewhere, you should create a "llvm" directory, and inside it, invoke the git clone, which
+will create the "llvm-project" directory inside. Still inside "llvm", create a directory
+called "build", then go inside.
+
+Then, you can invoke the CMake command to create the Visual Studion project files:
+
+```
+cmake -DLLVM_ENABLE_PROJECTS=clang -G "Visual Studio 16 2019" -A x64 -Thost=x64 ..\llvm-project\llvm
+```
+
+Launch the solution, compile everything in RelWithDebugInfo, and after a few dozens of minutes, you're done.
+
+You will have to set an environment variable to the directory where VCPKG's build has been done:
+
+- name: `PAERCEBAL_LLVM_DIR`
+- value: `<PARENT DIRECTORY OF LLVM>\llvm`
+
+For the record, you should be able to find the necessary include directories here:
+
+- `<PARENT DIRECTORY OF LLVM>\llvm\llvm-project\clang\include`
+- `<PARENT DIRECTORY OF LLVM>\llvm\llvm-project\llvm\include`
+- `<PARENT DIRECTORY OF LLVM>\llvm\build\include`
+- `<PARENT DIRECTORY OF LLVM>\llvm\build\tools\clang\include`
+
 
 ### 6. Install CodeBook project from Github
 

@@ -25,12 +25,20 @@ namespace CodeBook.ApplicationNet
             InitializeComponent();
 
             this.LibVersion.Text = "Titi";
+            this.SymbolName.Text = "n::m::C";
+            this.Source.Text = "namespace n { namespace m { class C {}; } }";
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void GetVersionButton_Click(object sender, RoutedEventArgs e)
         {
             var m = new CodeBook.LibraryNet.Module();
             this.LibVersion.Text = m.GetVersion();
+        }
+
+        private void GetSymbolLocation_Click(object sender, RoutedEventArgs e)
+        {
+            var m = new CodeBook.LibraryNet.Module();
+            this.Output.Text = m.Testing(this.SymbolName.Text, this.Source.Text);
         }
     }
 }

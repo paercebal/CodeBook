@@ -5,10 +5,43 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CodeBook.ApplicationNet"
         mc:Ignorable="d"
-        Title="CodeBook (ApplicationNet)" Height="450" Width="800">
+        Height="450" Width="800" Background="Aquamarine"
+        Title="CodeBook (ApplicationNet)"
+        >
     <Grid>
-        <TextBox x:Name="LibVersion" HorizontalAlignment="Left" Height="51" Margin="43,68,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="344"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="449,68,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Grid.Column="0" Margin="5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Label Grid.Row="0" Grid.Column="0" Content="Version:"/>
+            <TextBox Grid.Row="0" Grid.Column="1" x:Name="LibVersion" HorizontalAlignment="Stretch" Margin="2" TextWrapping="Wrap" Text="..." VerticalAlignment="Stretch"/>
+            <Button Grid.Row="0" Grid.Column="2" Content="Get Version" HorizontalAlignment="Stretch" Margin="2" VerticalAlignment="Stretch" Click="GetVersionButton_Click"/>
+        </Grid>
+        <Grid Grid.Row="1" Grid.Column="0" Margin="5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="25"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Label Grid.Row="0" Grid.Column="0" Content="Symbol:"/>
+            <TextBox Grid.Row="0" Grid.Column="1" x:Name="SymbolName" HorizontalAlignment="Stretch" Margin="2" TextWrapping="Wrap" Text="..." VerticalAlignment="Stretch"/>
+            <Button Grid.Row="0" Grid.Column="2" Grid.RowSpan="3" Content="Get Symbol Location" HorizontalAlignment="Stretch" Margin="2" VerticalAlignment="Stretch" Click="GetSymbolLocation_Click"/>
+            <Label Grid.Row="1" Grid.Column="0" Content="Source:"/>
+            <TextBox Grid.Row="1" Grid.Column="1" x:Name="Source" HorizontalAlignment="Stretch" Margin="2" TextWrapping="Wrap" Text="..." VerticalAlignment="Stretch"/>
+            <Label Grid.Row="2" Grid.Column="0" Content="Output:"/>
+            <TextBox Grid.Row="2" Grid.Column="1" x:Name="Output" HorizontalAlignment="Stretch" Margin="2" TextWrapping="Wrap" Text="..." VerticalAlignment="Stretch"/>
+        </Grid>
 
     </Grid>
 </Window>

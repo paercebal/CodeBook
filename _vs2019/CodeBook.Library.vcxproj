@@ -28,8 +28,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\CodeBook.Library\private\CodeBook\Library\module.cpp" />
+    <ClCompile Include="..\CodeBook.Library\private\CodeBook\Library\testing.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\CodeBook.Library\public\CodeBook\Library\CodeBook.Library.hpp" />
     <ClInclude Include="..\CodeBook.Library\public\CodeBook\Library\module.hpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
@@ -77,12 +79,13 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;CODE_BOOK_x_LIBRARY_x_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>../CodeBook.Library/public;../CodeBook.Library/private</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../CodeBook.Library/public;../CodeBook.Library/private;$(PAERCEBAL_LLVM_DIR)\llvm-project\clang\include;$(PAERCEBAL_LLVM_DIR)\llvm-project\llvm\include;$(PAERCEBAL_LLVM_DIR)\build\include;$(PAERCEBAL_LLVM_DIR)\build\tools\clang\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(PAERCEBAL_LLVM_DIR)\build\Debug\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)'=='Release'">
@@ -94,7 +97,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;CODE_BOOK_x_LIBRARY_x_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>../CodeBook.Library/public;../CodeBook.Library/private</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../CodeBook.Library/public;../CodeBook.Library/private;$(PAERCEBAL_LLVM_DIR)\llvm-project\clang\include;$(PAERCEBAL_LLVM_DIR)\llvm-project\llvm\include;$(PAERCEBAL_LLVM_DIR)\build\include;$(PAERCEBAL_LLVM_DIR)\build\tools\clang\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
@@ -102,6 +105,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>$(PAERCEBAL_LLVM_DIR)\build\RelWithDebInfo\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)'=='ReleaseDev'">
@@ -113,7 +117,7 @@
       <FunctionLevelLinking>false</FunctionLevelLinking>
       <IntrinsicFunctions>false</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;CODE_BOOK_x_LIBRARY_x_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>../CodeBook.Library/public;../CodeBook.Library/private</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../CodeBook.Library/public;../CodeBook.Library/private;$(PAERCEBAL_LLVM_DIR)\llvm-project\clang\include;$(PAERCEBAL_LLVM_DIR)\llvm-project\llvm\include;$(PAERCEBAL_LLVM_DIR)\build\include;$(PAERCEBAL_LLVM_DIR)\build\tools\clang\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <WholeProgramOptimization>false</WholeProgramOptimization>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
@@ -122,6 +126,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>false</EnableCOMDATFolding>
       <OptimizeReferences>false</OptimizeReferences>
+      <AdditionalLibraryDirectories>$(PAERCEBAL_LLVM_DIR)\build\RelWithDebInfo\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
