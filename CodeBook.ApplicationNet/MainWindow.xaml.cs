@@ -23,6 +23,14 @@ namespace CodeBook.ApplicationNet
         public MainWindow()
         {
             InitializeComponent();
+
+            this.LibVersion.Text = "Titi";
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            var m = new CodeBook.LibraryNet.Module();
+            this.LibVersion.Text = m.GetVersion();
         }
     }
 }

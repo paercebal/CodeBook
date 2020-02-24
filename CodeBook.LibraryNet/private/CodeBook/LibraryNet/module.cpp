@@ -8,8 +8,11 @@ namespace LibraryNet {
 public
 ref class Module
 {
+public:
    System::String ^ GetVersion() {
-      return "CodeBook.LibraryNet (v0.0.1)";
+      std::string libraryVersion = Library::GetVersion();
+      System::String ^ libraryVersionNet = gcnew System::String(libraryVersion.c_str());;
+      return "CodeBook.LibraryNet (v0.0.1) [based on: " + libraryVersionNet + "]";
    }
 };
 
