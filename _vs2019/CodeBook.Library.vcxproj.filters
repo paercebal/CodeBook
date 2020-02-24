@@ -12,9 +12,15 @@
     <ClCompile Include="..\CodeBook.Library\private\CodeBook\Library\module.cpp">
       <Filter>/ %28private%29</Filter>
     </ClCompile>
+    <ClCompile Include="..\CodeBook.Library\private\CodeBook\Library\testing.cpp">
+      <Filter>/ %28private%29</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\CodeBook.Library\public\CodeBook\Library\module.hpp">
+      <Filter>/ %28public%29</Filter>
+    </ClInclude>
+    <ClInclude Include="..\CodeBook.Library\public\CodeBook\Library\CodeBook.Library.hpp">
       <Filter>/ %28public%29</Filter>
     </ClInclude>
   </ItemGroup>
