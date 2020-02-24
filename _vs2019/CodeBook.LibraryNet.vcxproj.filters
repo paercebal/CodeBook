@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="/ %28private%29">
+      <UniqueIdentifier>{C82E9564-FC5D-40BD-BEDC-8D512EAB643E}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="/ %28public%29">
+      <UniqueIdentifier>{FFF0D92F-FE17-49E4-B70D-A9567BDF10C1}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\CodeBook.LibraryNet\private\CodeBook\LibraryNet\module.cpp">
+      <Filter>/ %28private%29</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\CodeBook.LibraryNet\public\CodeBook\LibraryNet\module.hpp">
+      <Filter>/ %28public%29</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
